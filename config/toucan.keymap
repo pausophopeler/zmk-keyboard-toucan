@@ -23,7 +23,7 @@
         base {
             display-name = "BASE";
             bindings = <
-&kp NUMBER_1  &kp B  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp NUMBER_2  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT  &kp NUMBER_3  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &kp RALT
+&kp TAB  &kp B  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &kp A  &kp S  &kp D  &kp F  &lt 4 G  &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT  &kp LEFT_SHIFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &kp RALT
             >;
         };
 
@@ -44,11 +44,11 @@
         adj {
             display-name = "ADJ";
             bindings = <
-&mo TAB  &trans  &kp F7  &kp F8  &kp F9  &kp F12  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans  &trans  &kp BSPC  &kp LCTRL  &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans  &trans  &trans  &trans  &trans  &trans  &bt LSHFT  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans  &trans  &trans  &trans  &trans  &trans  &kp LGUI  &mo NAV  &kp SPACE  &kp RET  &mo 2  &kp RALT
+&mo 0  &trans  &kp F7  &kp F8  &kp F9  &kp F12  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans  &trans  &kp BSPC  &kp LCTRL  &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans  &trans  &trans  &trans  &trans  &trans  &bt LSHFT  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans  &trans  &trans  &trans  &trans  &trans  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &kp RALT
             >;
         };
 
-        extra_1 { status = "reserved"; };
+        g_layer { status = "reserved"; };
 
         extra_2 { status = "reserved"; };
 
