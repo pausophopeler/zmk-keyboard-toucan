@@ -48,7 +48,23 @@
             >;
         };
 
-        g_layer { status = "reserved"; };
+        g_layer {
+    display-name = "G Layer";
+
+    // Source F-Nav compressed onto Toucan:
+    //
+    // Toucan top-left  = source top row:  ⇧⌘←  ↑  ↓  ⇧⌘→
+    // Toucan top-right = source 2nd row:  ⇧⌥←  ⇧⌥↑  ⇧⌥↓  ⇧⌥→
+    // Toucan mid-right = source 3rd row:  ⌥←   ⌥↑   ⌥↓   ⌥→
+    // Toucan low-right = source 4th row:  ⌘←   ⌘↓   ⌘↑   ⌘→
+
+    bindings = <
+        &trans  &kp LS(LG(LEFT))  &kp UP          &kp DOWN          &kp LS(LG(RIGHT))  &trans      &trans  &kp LS(LA(LEFT))  &kp LS(LA(UP))  &kp LS(LA(DOWN))  &kp LS(LA(RIGHT))  &trans
+        &trans  &trans            &trans          &trans            &trans             &trans      &trans  &kp LA(LEFT)      &kp LA(UP)      &kp LA(DOWN)      &kp LA(RIGHT)      &trans
+        &trans  &trans            &trans          &trans            &trans             &trans      &trans  &kp LG(LEFT)      &kp LG(DOWN)    &kp LG(UP)        &kp LG(RIGHT)      &trans
+                                  &trans          &trans            &trans      &trans  &trans  &trans
+    >;
+};
 
         extra_2 { status = "reserved"; };
 
