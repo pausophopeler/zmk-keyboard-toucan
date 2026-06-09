@@ -41,7 +41,7 @@
         nav {
             display-name = "NAV";
             bindings = <
-&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp PG_UP  &kp PG_DN  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &kp DEL  &kp LSHFT  &trans  &kp LC(LS(TAB))  &kp LG(LS(RBKT))  &kp LG(GRAVE)  &kp RA(GRAVE)  &kp LG(LEFT_ARROW)  &kp RG(RIGHT_ARROW)  &kp LA(LEFT_ARROW)  &kp RA(RIGHT_ARROW)  &kp LC(LA(LG(M)))  &kp LC(LA(LG(N)))  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
+&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp PG_UP  &kp PG_DN  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &kp DEL  &kp LSHFT  &trans  &kp LC(LS(TAB))  &kp LG(LS(RBKT))  &kp LG(GRAVE)  &kp RA(GRAVE)  &kp LG(LEFT_ARROW)  &kp RG(RIGHT_ARROW)  &kp LA(LEFT_ARROW)  &kp RA(RIGHT_ARROW)  &kp LC(LA(LG(M)))  &kp LC(LG(N))  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
             >;
         };
 
