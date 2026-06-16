@@ -36,7 +36,7 @@
         base {
             display-name = "BASE";
             bindings = <
-&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &hrm LSHFT A  &kp S  &kp D  &kp F  &lt 4 G  &kp H  &kp J  &kp K  &kp L  &hrm RSHFT SEMI  &kp SQT  &mt LEFT_SHIFT ESC  &kp Z  &kp X  &lp_cpy LG(C) C  &lp_cpy LG(V) V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mt RIGHT_SHIFT ESC  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &mo 3
+&mt LALT TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &hrm LSHFT A  &kp S  &kp D  &kp F  &lt 4 G  &kp H  &kp J  &kp K  &kp L  &hrm RSHFT SEMI  &kp SQT  &mt LEFT_SHIFT ESC  &kp Z  &kp X  &lp_cpy LG(C) C  &lp_cpy LG(V) V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mt RIGHT_SHIFT ESC  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &mo 3
             >;
         };
 
@@ -57,7 +57,7 @@
         adj {
             display-name = "ADJ";
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP  &kp BSPC  &kp LCTRL  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp LC(LG(Q))  &trans  &kp LG(LA(LC(LS(K))))  &trans  &trans  &bt BT_CLR  &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &kp RALT
+&kp LG(LA(ESC))  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP  &kp BSPC  &kp LCTRL  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp LC(LG(Q))  &kp C_VOICE_COMMAND  &kp LG(LA(LC(LS(K))))  &kp LA(SPACE)  &trans  &bt BT_CLR  &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &kp RALT
             >;
         };
 
