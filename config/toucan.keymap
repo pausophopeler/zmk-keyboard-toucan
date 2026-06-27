@@ -6,6 +6,7 @@
 #define NAV  1
 #define SYM  2
 #define ADJ  3
+#define NUM  5
 
 / {
     behaviors {
@@ -28,6 +29,29 @@
             bindings = <&kp>, <&kp>;
         };
 
+        td_hyper_meh: td_hyper_meh {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk LS(LC(LA(LGUI)))>, <&sk LS(LC(LALT))>;
+        };
+
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_esc_df {
+            timeout-ms = <50>;
+            key-positions = <15 16>;
+            bindings = <&kp ESC>;
+        };
+
+        combo_esc_jk {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp ESC>;
+        };
     };
 
     keymap {
@@ -36,7 +60,7 @@
         base {
             display-name = "BASE";
             bindings = <
-&lt 3 TAB &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &hrm LSHFT A  &kp S  &hrm LALT D  &hrm LGUI F  &lt 4 G  &kp H  &hrm RGUI J  &hrm RALT K  &kp L  &hrm RSHFT SEMI  &kp SQT  &mt LEFT_SHIFT ESC  &kp Z  &kp X  &lp_cpy LG(C) C  &lp_cpy LG(V) V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mt RIGHT_SHIFT ESC  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &mo 3
+&lt NUM TAB &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &hrm LCTRL A  &hrm LALT S  &hrm LGUI D  &hrm LSHFT F  &lt 4 G  &kp H  &hrm RSHFT J  &hrm RGUI K  &hrm RALT L  &hrm RCTRL SEMI  &kp SQT  &td_hyper_meh  &kp Z  &kp X  &lp_cpy LG(C) C  &lp_cpy LG(V) V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &sk RSHFT  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &mo 3
             >;
         };
 
@@ -77,7 +101,12 @@
             >;
         };
 
-        extra_2 { status = "reserved"; };
+        num_pad {
+            display-name = "NUM";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &kp N0  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
+            >;
+        };
 
         extra_3 { status = "reserved"; };
     };
