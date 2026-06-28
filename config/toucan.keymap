@@ -36,6 +36,13 @@
             bindings = <&sk LS(LC(LA(LGUI)))>, <&sk LS(LC(LALT))>;
         };
 
+        td_slash_caps: td_slash_caps {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp FSLH>, <&kp CAPS>;
+        };
+
     };
 
     combos {
@@ -60,14 +67,14 @@
         base {
             display-name = "BASE";
             bindings = <
-&lt NUM TAB &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &hrm LCTRL A  &hrm LALT S  &hrm LGUI D  &hrm LSHFT F  &lt 4 G  &kp H  &hrm RSHFT J  &hrm RGUI K  &hrm RALT L  &hrm RCTRL SEMI  &kp SQT  &td_hyper_meh  &kp Z  &kp X  &lp_cpy LG(C) C  &lp_cpy LG(V) V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &sk RSHFT  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &mo 3
+&kp TAB &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &hrm LCTRL A  &hrm LALT S  &hrm LGUI D  &hrm LSHFT F  &lt 4 G  &kp H  &hrm RSHFT J  &hrm RGUI K  &hrm RALT L  &hrm RCTRL SEMI  &kp SQT  &td_hyper_meh  &lt NUM Z  &kp X  &lp_cpy LG(C) C  &lp_cpy LG(V) V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &td_slash_caps  &sk RSHFT  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &mo 3
             >;
         };
 
         nav {
             display-name = "NAV";
             bindings = <
-&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &kp MINUS  &kp PLUS  &kp EQUAL  &kp UNDER  &kp PG_UP  &kp PG_DN  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &kp DEL  &kp LSHFT  &trans  &kp LC(LS(TAB))  &kp LG(LS(RBKT))  &kp LG(GRAVE)  &kp RA(GRAVE)  &kp LG(LEFT_ARROW)  &kp RG(RIGHT_ARROW)  &kp LA(LEFT_ARROW)  &kp RA(RIGHT_ARROW)  &kp LC(LA(LG(M)))  &kp LC(LG(N))  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
+&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &kp MINUS  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &kp DEL  &kp LSHFT  &trans  &kp LC(LS(TAB))  &kp LG(LS(RBKT))  &kp LG(GRAVE)  &kp RA(GRAVE)  &kp LG(LEFT_ARROW)  &kp RG(RIGHT_ARROW)  &kp LA(LEFT_ARROW)  &kp RA(RIGHT_ARROW)  &kp LC(LA(LG(M)))  &kp LC(LG(N))  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
             >;
         };
 
@@ -104,7 +111,7 @@
         num_pad {
             display-name = "NUM";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &kp N0  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &trans  &trans  &trans  &trans  &trans  &kp PLUS  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N0  &kp N1  &kp N2  &kp N3  &kp N0  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
             >;
         };
 
