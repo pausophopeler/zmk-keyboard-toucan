@@ -29,11 +29,11 @@
             bindings = <&kp>, <&kp>;
         };
 
-        td_hyper_meh: td_hyper_meh {
-            compatible = "zmk,behavior-tap-dance";
+        hyper_meh: hyper_meh {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sk LS(LC(LA(LGUI)))>, <&sk LS(LC(LALT))>;
+            bindings = <&kp LS(LC(LA(LGUI)))>, <&kp LS(LC(LALT))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         td_slash_caps: td_slash_caps {
@@ -67,7 +67,7 @@
         base {
             display-name = "BASE";
             bindings = <
-&kp TAB &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &hrm LCTRL A  &hrm LALT S  &hrm LGUI D  &hrm LSHFT F  &lt 4 G  &kp H  &hrm RSHFT J  &hrm RGUI K  &hrm RALT L  &hrm RCTRL SEMI  &kp SQT  &td_hyper_meh  &lt NUM Z  &kp X  &lp_cpy LG(C) C  &lp_cpy LG(V) V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &td_slash_caps  &sk RSHFT  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &mo 3
+&kp TAB &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LEFT_CONTROL  &hrm LCTRL A  &hrm LALT S  &hrm LGUI D  &hrm LSHFT F  &lt 4 G  &kp H  &hrm RSHFT J  &hrm RGUI K  &hrm RALT L  &hrm RCTRL SEMI  &kp SQT  &hyper_meh  &lt NUM Z  &kp X  &lp_cpy LG(C) C  &lp_cpy LG(V) V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &td_slash_caps  &sk RSHFT  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &mo 3
             >;
         };
 
@@ -98,13 +98,13 @@
             // Source F-Nav compressed onto Toucan:
             //
             // Toucan top-left  = source top row:  ⇧⌘←  ↑  ↓  ⇧⌘→
-            // Toucan top-right = source 2nd row:  ⇧⌥←  ⇧⌥↑  ⇧⌥↓  ⇧⌥→
+            // Toucan top-right = source 2nd row:  ⇧⌥←  ⇧⌥→  ⌘⇧V(mac plain)  ⌘⌥⇧V(mac match)
             // Toucan mid-left  = row ops:         sel-row  del-row  ins-excel  ins-proj
-            // Toucan mid-right = source 3rd row:  ⌥←   ⌥↑   ⌥↓   ⌥→
-            // Toucan low-right = source 4th row:  ⌘←   ⌘↓   ⌘↑   ⌘→
+            // Toucan mid-right = source 3rd row:  ⌥←   ⌥→   ⌃⇧V(win plain)  ⌃⌥V(win special)
+            // Toucan low-right = source 4th row:  ⌘←   ⌘→
 
             bindings = <
-&trans  &kp LS(LG(LEFT))  &kp UP  &kp DOWN  &kp LS(LG(RIGHT))  &trans  &kp LS(LA(LEFT))  &kp LS(LA(RIGHT))  &trans  &trans  &trans  &trans  &trans  &kp LS(SPACE)  &kp LC(KP_MINUS)  &kp LC(KP_PLUS)  &kp INS  &trans  &kp LA(LEFT)  &kp LA(RIGHT)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LEFT)  &kp LG(RIGHT)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LS(LG(LEFT))  &kp UP  &kp DOWN  &kp LS(LG(RIGHT))  &trans  &kp LS(LA(LEFT))  &kp LS(LA(RIGHT))  &kp LG(LS(V))  &kp LG(LA(LS(V)))  &trans  &trans  &trans  &kp LS(SPACE)  &kp LC(KP_MINUS)  &kp LC(KP_PLUS)  &kp INS  &trans  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(LS(V))  &kp LC(LA(V))  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LEFT)  &kp LG(RIGHT)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
