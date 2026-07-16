@@ -68,14 +68,8 @@
             wait-ms = <30>;
             tap-ms = <30>;
             bindings
-                = <&kp FSLH>
-                , <&kp T>
-                , <&kp O>
-                , <&kp G>
-                , <&kp G>
-                , <&kp L>
-                , <&kp E>
-                , <&kp RET>
+                = <&kp GT>
+                , <&kp SPACE>
                 ;
         };
 
@@ -87,7 +81,6 @@
             bindings
                 = <&kp LG(A)>
                 , <&kp LG(I)>
-                , <&kp RIGHT>
                 , <&kp FSLH>
                 , <&kp B>
                 , <&kp L>
@@ -105,7 +98,6 @@
             bindings
                 = <&kp LG(A)>
                 , <&kp LG(B)>
-                , <&kp RIGHT>
                 , <&kp FSLH>
                 , <&kp R>
                 , <&kp E>
@@ -163,7 +155,7 @@
         nav {
             display-name = "NAV";
             bindings = <
-&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &kp MINUS  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &kp DEL  &trans  &trans  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &kp LG(LEFT_ARROW)  &kp RG(RIGHT_ARROW)  &kp LA(LEFT_ARROW)  &trans  &trans  &kp LC(LG(N))  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
+&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &kp MINUS  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &kp DEL  &trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &kp LG(LEFT_ARROW)  &kp RG(RIGHT_ARROW)  &kp LA(LEFT_ARROW)  &trans  &trans  &kp LC(LG(N))  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
             >;
         };
 
