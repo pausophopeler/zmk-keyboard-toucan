@@ -117,6 +117,95 @@
                 ;
         };
 
+        notion_bold_green: notion_bold_green {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp FSLH>
+                , <&kp G>
+                , <&kp R>
+                , <&kp E>
+                , <&kp E>
+                , <&kp N>
+                , <&kp RET>
+                , <&kp LG(A)>
+                , <&kp LG(B)>
+                ;
+        };
+
+        notion_italic_orange: notion_italic_orange {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp FSLH>
+                , <&kp O>
+                , <&kp R>
+                , <&kp A>
+                , <&kp N>
+                , <&kp G>
+                , <&kp E>
+                , <&kp RET>
+                , <&kp LG(A)>
+                , <&kp LG(I)>
+                ;
+        };
+
+        notion_highlight_yellow: notion_highlight_yellow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp FSLH>
+                , <&kp Y>
+                , <&kp E>
+                , <&kp L>
+                , <&kp L>
+                , <&kp O>
+                , <&kp W>
+                , <&kp SPACE>
+                , <&kp B>
+                , <&kp A>
+                , <&kp C>
+                , <&kp K>
+                , <&kp G>
+                , <&kp R>
+                , <&kp O>
+                , <&kp U>
+                , <&kp N>
+                , <&kp D>
+                , <&kp RET>
+                ;
+        };
+
+        notion_todo: notion_todo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp LBKT>
+                , <&kp RBKT>
+                , <&kp SPACE>
+                ;
+        };
+
+        notion_heading: notion_heading {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp HASH>
+                , <&kp HASH>
+                , <&kp SPACE>
+                ;
+        };
+
     };
 
     combos {
@@ -169,7 +258,7 @@
         adj {
             display-name = "ADJ";
             bindings = <
-&kp LG(LA(ESC))  &notion_callout  &notion_italic_blue  &notion_toggle  &notion_reapply_color  &notion_bold_red  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP  &kp BSPC  &kp LCTRL  &trans  &trans  &trans  &trans  &trans  &kp LC(LG(Q))  &kp C_VOICE_COMMAND  &kp LG(LA(LC(LS(K))))  &kp LA(SPACE)  &trans  &bt BT_CLR  &bt BT_CLR_ALL  &trans  &kp LC(LS(TAB))  &kp LG(LS(RBKT))  &kp LG(GRAVE)  &kp RA(GRAVE)  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &kp RALT
+&kp LG(LA(ESC))  &notion_callout  &notion_italic_blue  &notion_toggle  &notion_reapply_color  &notion_bold_red  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP  &kp BSPC  &kp LCTRL  &notion_bold_green  &notion_italic_orange  &notion_highlight_yellow  &notion_todo  &notion_heading  &kp LC(LG(Q))  &kp C_VOICE_COMMAND  &kp LG(LA(LC(LS(K))))  &kp LA(SPACE)  &trans  &bt BT_CLR  &bt BT_CLR_ALL  &trans  &kp LC(LS(TAB))  &kp LG(LS(RBKT))  &kp LG(GRAVE)  &kp RA(GRAVE)  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2  &kp RALT
             >;
         };
 
