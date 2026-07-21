@@ -234,7 +234,7 @@
 
         combo_graphite_toggle {
             timeout-ms = <50>;
-            key-positions = <30 31>;
+            key-positions = <29 32>;
             layers = <BASE GRAPHITE>;
             bindings = <&tog GRAPHITE>;
         };
@@ -274,7 +274,7 @@
         adj {
             display-name = "ADJ";
             bindings = <
-&kp LG(LA(ESC))  &notion_callout  &notion_italic_blue  &notion_toggle  &notion_reapply_color  &notion_bold_red  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP  &kp BSPC  &kp LCTRL  &notion_bold_green  &notion_italic_orange  &notion_highlight_yellow  &notion_todo  &notion_heading  &kp LC(LG(Q))  &kp C_VOICE_COMMAND  &kp LG(LA(LC(LS(K))))  &kp LA(SPACE)  &trans  &bt BT_CLR  &bt BT_CLR_ALL  &trans  &kp LC(LS(TAB))  &kp LG(LS(RBKT))  &kp LG(GRAVE)  &kp RA(GRAVE)  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &kp LGUI  &mo NAV  &kp SPACE  &kp RET  &mo SYM  &kp RALT
+&kp LG(LA(ESC))  &notion_callout  &notion_italic_blue  &notion_toggle  &notion_reapply_color  &notion_bold_red  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP  &kp BSPC  &kp LCTRL  &notion_bold_green  &notion_italic_orange  &notion_highlight_yellow  &notion_todo  &notion_heading  &kp LC(LG(Q))  &kp C_VOICE_COMMAND  &kp LG(LA(LC(LS(K))))  &kp LA(SPACE)  &trans  &trans  &trans  &trans  &kp LC(LS(TAB))  &kp LG(LS(RBKT))  &kp LG(GRAVE)  &kp RA(GRAVE)  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &kp LGUI  &mo NAV  &kp SPACE  &kp RET  &mo SYM  &kp RALT
             >;
         };
 
@@ -297,14 +297,14 @@
         num_pad {
             display-name = "NUM";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &trans  &trans  &trans  &kp PG_UP  &trans  &kp PLUS  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &trans  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &kp LG(LA(LEFT))  &kp LG(LA(RIGHT))  &trans  &kp PG_UP  &trans  &kp PLUS  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &trans  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
             >;
         };
 
         orange {
             display-name = "Orange";
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR  &bt BT_CLR_ALL  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
