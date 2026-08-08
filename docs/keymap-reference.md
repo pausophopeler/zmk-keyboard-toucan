@@ -2,6 +2,8 @@
 
 Quick reference for every non-standard key/behavior on the Toucan keymap (`config/toucan.keymap`). Plain letters, numbers, and unmodified punctuation are omitted — this covers only holds, taps, macros, and modifier chords.
 
+Updated for commit `cbb1c2a`.
+
 ## Custom Behaviors (used across layers)
 
 | Behavior | What it does |
@@ -23,7 +25,7 @@ Quick reference for every non-standard key/behavior on the Toucan keymap (`confi
 | V | lp_cpy | Tap=V, Hold=⌘V (paste) |
 | Bottom-left pinky | hyper_meh | Tap=Hyper, Shift+Tap=Meh |
 | `/` key | td_slash_caps | 1 tap=`/`, 2 taps=Caps Lock |
-| Right thumb inner | `sk RSHFT` | Sticky Shift (one-shot) |
+| Row 3, far-right (pinky) | `sk RSHFT` | Sticky Shift (one-shot) |
 | Left thumb 2 | `mo NAV` | Hold for NAV layer |
 | Right thumb 2 | `mo SYM` | Hold for SYM layer |
 | Right thumb 3 | `mo ADJ` | Hold for ADJ layer |
@@ -46,13 +48,15 @@ Full alternate letter layout for typing practice, toggled on/off via combo. Same
 
 | Key | Binding | What it does |
 |---|---|---|
+| Top-left pinky (row 2) | `KP_PLUS` | Numpad `+` |
+| Row 3, far-left pinky | `KP_MINUS` | Numpad `-` |
 | Left/Down/Up/Right | Arrows | Standard arrow keys |
 | Z, X, C, V | ⌘Z / ⌘X / ⌘C / ⌘V | Undo / Cut / Copy / Paste |
-| B | ⌘← | Jump to line start (Mac) |
-| N (right side) | ⌘→ | Jump to line end |
-| M | ⌥← | Move one word left |
-| `,` | ⌥→ | Move one word right |
-| H | ⌃⌘N | Custom/app-specific shortcut |
+| N | ⌘← | Jump to line start (Mac) |
+| M | ⌘→ | Jump to line end |
+| `,` | ⌥← | Move one word left |
+| `.` | ⌥→ | Move one word right |
+| Row 3, far-right (pinky) | ⌃⌘N | Custom/app-specific shortcut |
 | Right thumb 3 | Right Alt | AltGr / accented chars |
 
 ## SYM Layer (hold right thumb)
@@ -61,8 +65,8 @@ Full alternate letter layout for typing practice, toggled on/off via combo. Same
 |---|---|---|
 | Top row | `! @ # $ % ^ & * ( )` | Shifted number-row symbols |
 | Home row | `- = [ ] \ ` \` `` | Punctuation symbols |
-| B (row 3) | ⌥→ | Move word right |
-| V (row 3) | ⌃⌥⌘M | Custom/app-specific shortcut |
+| V (row 3) | ⌥→ | Move word right |
+| B (row 3) | ⌃⌥⌘M | Custom/app-specific shortcut |
 | N, M, `,` `.` `/` | `+ _ { } |` `~` | Shifted punctuation |
 
 ## ADJ Layer (right thumb 3)
@@ -87,16 +91,16 @@ Full alternate letter layout for typing practice, toggled on/off via combo. Same
 | Key | Binding | What it does |
 |---|---|---|
 | Tab (top-left) | ⌘⌥Esc | Force Quit Applications |
-| Y | ⌃⌘Q | Lock screen |
-| U | Voice Command | Dictation/voice control |
-| I | ⌘⌥⌃⇧K (Hyper+K) | Custom shortcut (likely Keyboard Maestro) |
-| O | ⌥Space | Alt app-launcher (Spotlight/Raycast/Alfred) |
+| H | ⌃⌘Q | Lock screen |
+| J | Voice Command | Dictation/voice control |
+| K | ⌘⌥⌃⇧K (Hyper+K) | Custom shortcut (likely Keyboard Maestro) |
+| L | ⌥Space | Alt app-launcher (Spotlight/Raycast/Alfred) |
 | Vol Down/Mute/Vol Up/Bri Down/Bri Up | Media keys | Standard media controls |
 | X | ⌃⇧Tab | Previous browser tab |
 | C | ⌘⇧] | Next browser tab |
 | V | ⌘\` | Cycle windows within current app |
 | B | Right-Option+\` | App-specific / AltGr use |
-| BT row | `bt BT_CLR` / `bt BT_CLR_ALL` / `bt BT_SEL 0-4` | Clear one/all BT profiles; select profile 0–4 |
+| N, M, `,`, `.`, bottom-right pinky | `bt BT_SEL 0-4` | Select BT profile 0–4 |
 
 ## G Layer — "F-Nav" (hold G key)
 
@@ -112,13 +116,27 @@ Compressed spreadsheet/document navigation layer:
 | Mid-right (K, L) | ⌃⇧V / ⌃⌥V | Paste plain / paste special (Windows) |
 | Low-right | ⌘← / ⌘→ | Jump to line start/end |
 
-## NUM Layer (hold Z)
+## NUM Layer (hold Z / hold Q on GRAPHITE)
 
-Standard numpad layout (7/8/9, 4/5/6, 0/1/2/3, `.`, `+`, `-`, Page Up/Down) — no non-standard bindings.
+Numpad layout (7/8/9, 4/5/6, 0/1/2/3, `.`, `+`, `-`) plus a few extras:
 
-## Orange Layer (combo: two keys on row 2)
+| Key | Binding | What it does |
+|---|---|---|
+| A | ⌘⌥← | Custom/app-specific shortcut |
+| S | ⌘⌥→ | Custom/app-specific shortcut |
+| F | Page Up | Scroll up a page |
+| G | ⌘+ | Zoom in (right of Page Up) |
+| B | Page Down | Scroll down a page |
+| N | ⌘_ | Zoom out (right of Page Down) |
 
-`F1`–`F12` function keys only — no non-standard bindings.
+## Orange Layer (combo: two rightmost row-3 keys)
+
+`F1`–`F12` function keys, plus:
+
+| Key | Binding | What it does |
+|---|---|---|
+| `'` (row 2, far-right) | `bt BT_CLR` | Clear current BT profile's bond |
+| Bottom-left pinky | `bt BT_CLR_ALL` | Clear all BT profile bonds |
 
 ## Combos (not tied to a single layer)
 
@@ -127,4 +145,4 @@ Standard numpad layout (7/8/9, 4/5/6, 0/1/2/3, `.`, `+`, `-`, Page Up/Down) — 
 | D + F (home row) | Esc |
 | J + K (home row) | Esc |
 | Two rightmost row-3 keys (BASE/GRAPHITE) | Momentary Orange (F-key) layer |
-| N + M (row 3, BASE/GRAPHITE) | Toggle GRAPHITE layer |
+| B + `,` (row 3, BASE/GRAPHITE) | Toggle GRAPHITE layer |

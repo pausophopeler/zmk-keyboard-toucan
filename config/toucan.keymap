@@ -260,7 +260,7 @@
         nav {
             display-name = "NAV";
             bindings = <
-&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &kp MINUS  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp DOT  &kp DEL  &trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &kp LG(LEFT_ARROW)  &kp RG(RIGHT_ARROW)  &kp LA(LEFT_ARROW)  &kp RA(RIGHT_ARROW)  &trans  &kp LC(LG(N))  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
+&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &kp KP_PLUS  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp DOT  &kp DEL  &kp KP_MINUS  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &kp LG(LEFT_ARROW)  &kp RG(RIGHT_ARROW)  &kp LA(LEFT_ARROW)  &kp RA(RIGHT_ARROW)  &trans  &kp LC(LG(N))  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
             >;
         };
 
@@ -297,7 +297,7 @@
         num_pad {
             display-name = "NUM";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &kp LG(LA(LEFT))  &kp LG(LA(RIGHT))  &trans  &kp PG_UP  &trans  &kp PLUS  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &trans  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &kp LG(LA(LEFT))  &kp LG(LA(RIGHT))  &trans  &kp PG_UP  &kp LG(PLUS)  &kp PLUS  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LG(UNDER)  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
             >;
         };
 
