@@ -288,16 +288,17 @@
             // Toucan mid-left  = row ops:         sel-row  del-row  ins-excel  ins-proj
             // Toucan mid-right = source 3rd row:  ⌥←   ⌥→   ⌃⇧V(win plain)  ⌃⌥V(win special)
             // Toucan low-right = source 4th row:  ⌘←   ⌘→
+            // Toucan low-right (, / . keys)      = ⌥⌘←  ⌥⌘→  (moved from NUM layer)
 
             bindings = <
-&trans  &kp LS(LG(LEFT))  &kp UP  &kp DOWN  &kp LS(LG(RIGHT))  &trans  &kp LS(LA(LEFT))  &kp LS(LA(RIGHT))  &kp LG(LS(V))  &kp LG(LA(LS(V)))  &trans  &trans  &trans  &kp LS(SPACE)  &kp LC(KP_MINUS)  &kp LC(KP_PLUS)  &kp INS  &trans  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(LS(V))  &kp LC(LA(V))  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LEFT)  &kp LG(RIGHT)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LS(LG(LEFT))  &kp UP  &kp DOWN  &kp LS(LG(RIGHT))  &trans  &kp LS(LA(LEFT))  &kp LS(LA(RIGHT))  &kp LG(LS(V))  &kp LG(LA(LS(V)))  &trans  &trans  &trans  &kp LS(SPACE)  &kp LC(KP_MINUS)  &kp LC(KP_PLUS)  &kp INS  &trans  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(LS(V))  &kp LC(LA(V))  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LEFT)  &kp LG(RIGHT)  &kp LG(LA(LEFT))  &kp LG(LA(RIGHT))  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         num_pad {
             display-name = "NUM";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &kp LG(LA(LEFT))  &kp LG(LA(RIGHT))  &trans  &kp PG_UP  &kp LG(PLUS)  &kp PLUS  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LG(UNDER)  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp N7  &kp N8  &kp N9  &trans  &kp BSPC  &trans  &trans  &trans  &trans  &kp PG_UP  &kp LG(PLUS)  &kp PLUS  &kp N4  &kp N5  &kp N6  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_DN  &kp LG(UNDER)  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &trans  &trans  &trans  &trans  &kp RET  &trans  &trans
             >;
         };
 
