@@ -6,8 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Board**: seeeduino_xiao_ble (both halves)
 - **Form factor**: 42-key split Corne-style (beekeeb Toucan), 6×3 + 3 thumb keys per side
-- **Left half**: nice_view_gem display, Cirque Pinnacle trackpad (via `cirque-input-module` from geeksville's `toucan` branch), ZMK Studio enabled
-- **Right half**: rgbled_adapter only (no display)
+- **Left half**: nice_view_gem display, ZMK Studio enabled
+- **Right half**: rgbled_adapter, Azoteq TPS43 trackpad (via `zmk_driver_azoteq` + `zmk-input-zoom` from beekeeb, I2C) — Toucan2 hardware revision
 - **ZMK version**: v0.3 (pinned in `config/west.yml`)
 
 ## Building firmware
@@ -25,8 +25,8 @@ Build matrix is defined in `build.yaml`:
 |------|---------|
 | `config/toucan.keymap` | **Main keymap — edit this** |
 | `boards/shields/toucan/toucan.dtsi` | Hardware layout, matrix transform, trackpad input pipeline |
-| `boards/shields/toucan/toucan_left.overlay` | Left-half pin assignments, SPI for display, enables glidepoint listener |
-| `boards/shields/toucan/toucan_right.overlay` | Right-half pin assignments, Cirque Pinnacle SPI device definition |
+| `boards/shields/toucan/toucan_left.overlay` | Left-half pin assignments, SPI for display, enables trackpad listener + zoom mapper |
+| `boards/shields/toucan/toucan_right.overlay` | Right-half pin assignments, Azoteq TPS43 I2C device definition |
 | `boards/shields/toucan/toucan_left.conf` | Left Kconfig (pointing, sleep, BLE battery proxy) |
 | `boards/shields/toucan/toucan_right.conf` | Right Kconfig (pointing, sleep) |
 | `config/west.yml` | ZMK version pin + external module dependencies |
@@ -63,37 +63,40 @@ Defined in `config/toucan.keymap`:
 - `B`+`,`/`<` (row 3, BASE/GRAPHITE only) → toggles GRAPHITE layer
 - Two rightmost row-3 keys (BASE/GRAPHITE only) → momentary Orange (F-key) layer
 
-## Trackpad (Cirque Pinnacle) architecture
+## Trackpad (Azoteq TPS43, Toucan2 hardware) architecture
 
-The trackpad lives physically on the right half but is used by the left (central) half via ZMK's input-split mechanism:
+The trackpad lives physically on the right half but is used by the left (central) half via ZMK's input-split mechanism. This is the Toucan2 hardware revision — the original Toucan used a Cirque Pinnacle trackpad over SPI; Toucan2 replaces it with an Azoteq TPS43 over I2C (see `zmk_driver_azoteq`, pulled in via `config/west.yml`).
 
-1. **Right half** (`toucan_right.overlay`): defines the `glidepoint` SPI device (`cirque,pinnacle`), `sensitivity = "2x"`, `x-invert` enabled.
-2. **`toucan.dtsi`**: defines `glidepoint_split` (the split proxy) and `glidepoint_listener` (the input pipeline). The listener is **disabled** by default; the left overlay enables it.
-3. **Left half** (`toucan_left.overlay`): sets `&glidepoint_listener { status = "okay"; }`.
+1. **Right half** (`toucan_right.overlay`): defines `tps43_trackpad` on `&i2c0` (`azoteq,tps43`, addr `0x74`), with gesture support (`zoom`, `scroll`, `two-finger-tap`, `single-tap`, `press-and-hold`, `three-finger-swipe`), `sensitivity = <100>`, `switch-xy`, `invert-scroll-y`.
+2. **`toucan.dtsi`**: defines `trackpad_split` (the split proxy), `trackpad_listener` (the input pipeline), plus two input-processor nodes: `zip_zoom_mapper` (pinch gesture → ⌘−/⌘+) and `swipe_button_mapper` (4-direction swipe → ⌃⌘-arrow / Mission Control style shortcuts). The listener is **disabled** by default; the left overlay enables it.
+3. **Left half** (`toucan_left.overlay`): sets `&trackpad_listener { status = "okay"; }` and `&zip_zoom_mapper { status = "okay"; }`.
+
+Both `zip_zoom_mapper` and `swipe_button_mapper` bind Mac shortcuts (`LG(...)`/`LC(LG(...))`) by default; there's a `TOUCAN_WIN_MODE` `#define` at the top of `toucan.dtsi` (commented out) to switch them to Windows bindings instead.
+
+Upstream `zmk-keyboard-toucan2` also ships an `is_touching_processor` that maps `&mo 4` while the trackpad is touched — deliberately **not** wired in here, since layer 4 is this keymap's ADJ layer (Notion macros), not a trackpad-specific layer, and enabling it would pop up ADJ any time a finger rests on the pad.
 
 ### Tuning pointer and scroll speed
 
-All tuning is in `boards/shields/toucan/toucan.dtsi` inside `glidepoint_listener`:
+All tuning is in `boards/shields/toucan/toucan.dtsi` inside `trackpad_listener`:
 
 ```c
-glidepoint_listener: glidepoint_listener {
-    input-processors = <&zip_xy_scaler 250 100>;   // pointer speed: numerator/denominator (= 2.5×)
+trackpad_listener: trackpad_listener {
+    input-processors = <&zip_xy_scaler 100 100>, <&zip_scroll_scaler 1 20>, <&zip_zoom_mapper>, <&swipe_button_mapper>;
     scroller {
-        layers = <1 2>;                             // scroll active on layer indices 1 and 2
+        layers = <2 3>;                             // NAV, SYM — scroll active while either is held
         input-processors = <
             &zip_xy_to_scroll_mapper
-            &zip_scroll_scaler 1 7                  // scroll speed: 1/7 (lower = slower)
+            &zip_scroll_scaler 1 20                 // scroll speed: 1/20 (lower = slower)
             &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
         >;
     };
 };
 ```
 
-- **Pointer speed**: change `zip_xy_scaler <num> <den>` — larger ratio = faster cursor.
-- **Scroll speed**: change `zip_scroll_scaler <num> <den>` — e.g. `1 3` is faster than `1 7`.
-- **Hardware sensitivity**: set in `toucan_right.overlay` on the `glidepoint` node — `sensitivity = "1x"`, `"2x"`, or `"4x"`.
-
-> ⚠️ **Layer-number drift**: `layers = <1 2>` was written when NAV=1, SYM=2. After the GRAPHITE layer was inserted, index 1 is now GRAPHITE and index 2 is NAV — so scrolling currently activates on GRAPHITE+NAV, not NAV+SYM as originally intended. If you want scroll back on NAV+SYM, change this to `layers = <NAV SYM>` (or `<2 3>`).
+- **Pointer speed**: change `zip_xy_scaler <num> <den>` — larger ratio = faster cursor. (Values above are upstream's TPS43 defaults, not yet retuned from the old Pinnacle's `250 100`/`1 7` — the two sensors have different native sensitivity, so treat this as a starting point.)
+- **Scroll speed**: change `zip_scroll_scaler <num> <den>` in both places (main list and `scroller`) — e.g. `1 10` is faster than `1 20`.
+- **Hardware sensitivity**: set in `toucan_right.overlay` on the `tps43_trackpad` node — `sensitivity`/`scroll-sensitivity` (0–100), `scroll-angle`, `filter-settings`, `hold-time`.
+- **Scroll-active layers**: `scroller { layers = <...>; }` takes numeric layer indices, not the `NAV`/`SYM` `#define` names — those are only in scope inside `config/toucan.keymap`, not `toucan.dtsi`. Cross-check against the layer table below if layers are renumbered again.
 
 ## Display (nice_view_gem)
 
