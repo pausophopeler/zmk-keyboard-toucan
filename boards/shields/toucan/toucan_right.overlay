@@ -58,7 +58,11 @@
         enable-power-management;
         // idle-sleep; // maximal power savings but the trackpad won't work while ZMK is idle (no keypress in 30s). not recommended.
         // timeout-lp1 = <3>; // 60s timeout before entering lp2 state (20 secs per unit) (default was 20s)
-        report-rate-lp2 = <640>; // 640ms report rate in LP2 state means 55uA draw rather than default 160ms 174uA draw
+        // 320ms LP2 report rate: compromise between the 640ms (55uA, but ~0.6s + a few
+        // swipes to wake the pad after idle) and the 160ms default (174uA). Halves the
+        // wake lag while keeping most of the idle-current savings. See 2026-08 commit
+        // "trackpad wake responsiveness" for the reasoning.
+        report-rate-lp2 = <320>;
         scroll-angle = <30>; // the default angle (about 47 deg) is too big on toucan2
         sensitivity = <100>;
         scroll-sensitivity = <100>;

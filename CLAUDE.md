@@ -98,6 +98,16 @@ trackpad_listener: trackpad_listener {
 - **Hardware sensitivity**: set in `toucan_right.overlay` on the `tps43_trackpad` node — `sensitivity`/`scroll-sensitivity` (0–100), `scroll-angle`, `filter-settings`, `hold-time`.
 - **Scroll-active layers**: `scroller { layers = <...>; }` takes numeric layer indices, not the `NAV`/`SYM` `#define` names — those are only in scope inside `config/toucan.keymap`, not `toucan.dtsi`. Cross-check against the layer table below if layers are renumbered again.
 
+### Trackpad wake responsiveness vs. idle current
+
+The trackpad feels laggy on the first touch after a pause because two power-saving settings stack:
+
+- **`report-rate-lp2`** (`toucan_right.overlay`, `tps43_trackpad` node): scan interval in the TPS43's LP2 deep-idle state. Upstream default here was `640` (~55µA, but the first motion after idle lags ~0.6s and needs a few swipes to ramp back up); the pad's own default is `160` (~174µA). Currently set to `320` as a compromise — roughly half the wake lag, most of the idle savings. Lower = snappier + more idle draw. `timeout-lp1` is left at default, so LP2 is still entered, just polled more often.
+- **`CONFIG_ZMK_IDLE_TIMEOUT`** (both `toucan_left.conf` and `toucan_right.conf`, keep in sync): how long after the last keystroke ZMK stays out of its idle state, during which the pad is fully active and skips the ~300ms re-acquire delay. Raised from `30000` to `60000`. Both halves must match so the central half doesn't idle out from under the split trackpad.
+- Untouched: `CONFIG_ZMK_IDLE_SLEEP_TIMEOUT` (deep sleep, 60 min) and the commented-out `idle-sleep` on the trackpad node (which would fully kill the pad while ZMK is idle — not recommended).
+
+If idle battery life regresses, revert either knob independently: `report-rate-lp2` back toward `640`, or `CONFIG_ZMK_IDLE_TIMEOUT` back to `30000`.
+
 ## Display (nice_view_gem)
 
 Custom shield in `boards/shields/nice_view_gem/`. Widgets: battery, layer name, output/BLE profile, sleep indicator. Font assets (QuinqueFive) are pre-compiled C files. Modify `custom_status_screen.c` and the `widgets/` files to change what the display shows.
